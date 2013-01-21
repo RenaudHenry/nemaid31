@@ -8,14 +8,14 @@ if(isset($_SESSION['user_id'])) {
 }
 
 if(isset($_POST)) {
-	// Les identifiants sont transmis ?
+	// Les identifiants sont transmis 
 	if(!empty($_POST['login']) && !empty($_POST['password'])) {
 		extract($_POST);
 	
 		$sql = "SELECT id_user, email, password, admin FROM users WHERE email = '".$login."'";
 		$req = mysql_query($sql) or die(mysql_error());
 		
-		// L'utilisateur existe t'il dans la base ?
+		// L'utilisateur existe t'il dans la base 
 		if (mysql_num_rows($req) > 0) {
 			$data = mysql_fetch_assoc($req);
 			
